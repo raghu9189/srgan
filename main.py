@@ -5,8 +5,8 @@ img = cv2.imread('test-image.jpg')
 width = img.shape[1]
 height = img.shape[0]
 bicubic = cv2.resize(img,(width*4,height*4))
-cv2.imshow('Image',img)
-cv2.imshow('BICUBIC',bicubic)
+# cv2.imshow('Image',img)
+# cv2.imshow('BICUBIC',bicubic)
 
 super_res = cv2.dnn_superres.DnnSuperResImpl_create()
 
@@ -18,7 +18,7 @@ filename = "lapsrn_image.jpg"
 cv2.imwrite(filename, lapsrn_image)
 end = time.time()
 print('Time taken in seconds by lapsrn', end-start)
-cv2.imshow('LAPSRN',lapsrn_image)
+# cv2.imshow('LAPSRN',lapsrn_image)
 
 start = time.time()
 super_res.readModel('EDSR_x4.pb')
@@ -26,7 +26,7 @@ super_res.setModel('edsr',4)
 edsr_image = super_res.upsample(img)
 end = time.time()
 print('Time taken in seconds by edsr', end-start)
-cv2.imshow('EDSR',edsr_image)
+# cv2.imshow('EDSR',edsr_image)
 filename = "edsr_image.jpg"
 cv2.imwrite(filename, edsr_image)
 
